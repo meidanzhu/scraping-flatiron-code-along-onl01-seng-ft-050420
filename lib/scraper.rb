@@ -1,4 +1,3 @@
-require 'pry'
 require 'nokogiri'
 require 'open-uri'
 
@@ -23,8 +22,6 @@ class Scraper
 
   def get_page
     doc = Nokogiri::HTML(open("https://learn-co-curriculum.github.io/site-for-scraping/courses")
-
-    binding.pry 
   end
 
   def get_courses

@@ -16,6 +16,10 @@ class Scraper
     end
   end
 
+  #<h2>Web Development Immersive</h2>
+  #<em class="date">Full-Time</em>
+  #<p>An intensive, Ruby and Javascript course that teaches the skills necessary to start a career as a full-stack software developer.</p>
+
   def get_page
     doc = Nokogiri::HTML(open("https://learn-co-curriculum.github.io/site-for-scraping/courses")
   end

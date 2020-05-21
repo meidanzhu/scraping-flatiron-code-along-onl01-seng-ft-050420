@@ -16,20 +16,24 @@ class Scraper
     end
   end
 
-  #<h2>Web Development Immersive</h2>
-  #<em class="date">Full-Time</em>
-  #<p>An intensive, Ruby and Javascript course that teaches the skills necessary to start a career as a full-stack software developer.</p>
+  #course title doc.css(".post").first.css("h2").text
+  #course date doc.css(".post").first.css(".date").text
+  #course description doc.css(".post").first.css("p").text
 
   def get_page
     doc = Nokogiri::HTML(open("https://learn-co-curriculum.github.io/site-for-scraping/courses")
   end
 
   def get_courses
-
+    self.get_page.css(".post")
   end
 
   def make_courses
-
+    self.get_courses.each do |post|
+      course = Course.new
+      course.title = post.css("h2").text
+      course.schedule = post.css(".date").text
+      course.description = post.css("p").text
+    end
   end
-
 end
